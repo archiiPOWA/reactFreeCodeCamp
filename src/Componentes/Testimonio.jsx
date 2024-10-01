@@ -1,20 +1,23 @@
 import React from 'react';
+import '../hojas-de-estilo/Testimonio.css';
 
-export function Testimonio() {
+function Testimonio(props) {
   return(
     <div className='contenedor-testimonio'>
       <img 
         className='imagen-testimonio'
-        src={require('../imagenes/Logo-e.jpeg')}
+        src={require(`../imagenes/testimonio-${props.imagen}.jpeg`)}
         alt="foto wall-e"/>
     
     <div className="contenedor-texto-testimonio">
-        <p className='nombre-testimonio'>Wall-e te regala una naranja</p>
-        <p className="cargo-testimonio">Ingeniero del mundo</p>
-        <p className="texto-testimonio"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam ex sed rerum aspernatur ut dicta modi aliquid voluptas, in deserunt consectetur distinctio porro fuga, 
-          suscipit facere harum voluptatibus maxime neque.</p>
+        <p className='nombre-testimonio'>
+          <strong>{props.nombre}</strong> en {props.pais}</p>
+        <p className="cargo-testimonio">{props.cargo} en <strong>{props.empresa}</strong>
+        </p>
+        <p className="texto-testimonio">"{props.testimonio}"</p>
       </div>
     </div >
   );
 }
 
+export default Testimonio;
